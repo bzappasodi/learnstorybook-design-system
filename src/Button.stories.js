@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { userEvent, within } from '@storybook/testing-library';
 import { Button } from './Button';
 import { Icon } from './Icon';
 import { StoryLinkWrapper } from './StoryLinkWrapper';
@@ -277,17 +277,33 @@ export const AnchorWrapper = (args) => (
     >
       <Icon icon="link" aria-label="Link" />
     </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      size="small"
-      href="http://storybook.js.org"
-    >
-      <Icon icon="link" />
+            <Button
+              ButtonWrapper={StoryLinkWrapper}
+              appearance="outline"
+              size="small"
+              href="http://storybook.js.org"
+            >
+              <Icon icon="link" />
       Link
     </Button>
+
   </div>
 );
 
+ export const WithInteractions = () => (
+     <Button
+     ButtonWrapper={StoryLinkWrapper}
+     appearance="primary"
+     href="http://storybook.js.org">
+           Button
+        </Button>
+);
+ WithInteractions.play = async ({ canvasElement }) => {
+       // Assigns canvas to the component root element
+           const canvas = within(canvasElement);
+       await userEvent.click(canvas.getByRole("link"));
+     };
+
+WithInteractions.storyName = "button with interactions"
 
 AnchorWrapper.storyName= 'anchor wrapper';
