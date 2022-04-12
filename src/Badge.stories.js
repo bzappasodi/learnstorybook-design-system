@@ -27,8 +27,8 @@ AllBadges.args = {
 
 AllBadges.storyName = "all badges";
 
-export const Positive = () => <Badge status="positive">Positive badge</Badge>;
-export const Negative = () => <Badge status="negative">Negative badge</Badge>;
+export const Positive = () => <Badge status="positive">Positive badges</Badge>;
+export const Negative = () => <Badge status="negative">Negative badges</Badge>;
 export const Warning = () => <Badge status="warning">Warning</Badge>;
 export const Neutral = () => <Badge status="neutral">Neutral</Badge>;
 export const Error = () => <Badge status="error">Error</Badge>;
