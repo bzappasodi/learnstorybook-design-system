@@ -4,7 +4,6 @@ import { userEvent, within } from "@storybook/testing-library";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
 import { StoryLinkWrapper } from "./StoryLinkWrapper";
-import { GlobalStyle } from "../src/shared/global";
 
 const CustomButton = styled.button`
   border: 1px solid green;
@@ -22,14 +21,7 @@ export default {
   title: "Design System/Button",
   component: Button,
 };
-export const decorators = [
-  (Story) => (
-    <>
-      <GlobalStyle />
-      <Story />
-    </>
-  ),
-];
+
 export const AllButtons = (args) => (
   <div>
     <Button appearance="primary">Primary</Button>
